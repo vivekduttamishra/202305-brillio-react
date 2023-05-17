@@ -10,7 +10,6 @@ function searchEvens(values){
     return result;
 }
 
-
 function searchPrimes(values){
     var result=[];
     for(var value of values){
