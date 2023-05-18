@@ -43,9 +43,6 @@ function search(match, values) {
     return result;
 }
 
-// result = search((x) => x.author.toLowerCase().includes("vivek"), books);
-// result = search((x) => x.author.toLowerCase().includes("mohasin"), books);
-
 function byAuthor(name) {
     return (book) => {
         return book.author.toLowerCase().includes(name)
