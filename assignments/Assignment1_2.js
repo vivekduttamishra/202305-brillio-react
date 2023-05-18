@@ -20,8 +20,18 @@ var books=[
 
 
 function authorBy(value) { 
-    
+    return function match(book){
+        return book.author.toLowerCase().includes(value.toLowerCase())
+    }
 }
+
+var byAuthor= author => book => book.author.toLowerCase().includes(author.toLowerCase())
+
+var sjBooks=search(authorBy('SJ'),books)
+console.log("books",sjBooks)
+
+var vivekBooks=search(byAuthor('vivek'),books)
+console.log("vivekBooks",vivekBooks)
 
 
 
