@@ -45,7 +45,7 @@ function search(match, values) {
 
 function byAuthor(name) {
     return (book) => {
-        return book.author.toLowerCase().includes(name)
+        return book.author.toLowerCase().includes(name.toLowerCase())
     }
 }
 
