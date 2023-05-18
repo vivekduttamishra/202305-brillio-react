@@ -1,0 +1,41 @@
+function isPrime(num) {
+    if (num <= 1) {
+      return false;
+    }
+  
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+  
+    return true;
+  }
+  
+  async function findPrimesAsync(arr) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const primeNumbers = [];
+  
+        for (let i = 0; i < arr.length; i++) {
+          if (isPrime(arr[i])) {
+            primeNumbers.push(arr[i]);
+          }
+        }
+  
+        resolve(primeNumbers);
+      }, 0);
+    });
+  }
+  
+  // Example usage:
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  
+  findPrimesAsync(numbers)
+    .then((primeNumbers) => {
+      console.log(primeNumbers);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  
