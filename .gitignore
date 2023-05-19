@@ -10,3 +10,6 @@ node_modules/
 *.exe 
 .vs/
 *.pdb 
+/.idea/202305-brillio-react.iml
+/.idea/modules.xml
+/.idea/vcs.xml
