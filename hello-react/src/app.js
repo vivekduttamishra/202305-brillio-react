@@ -9,9 +9,12 @@ export class App extends Component {
     render() {
         return (
                 <>
-                    <AppHeader/>
+                    <AppHeader size={12} color="orangered" >
+                        Book's Web
+                    </AppHeader>
                     <Content/>
-                    <AppFooter/>
+                    <AppFooter link="https://react.dev" 
+                                text="React" />
                 </>
         );
     }
