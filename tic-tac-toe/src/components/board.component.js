@@ -1,7 +1,18 @@
+import Cell from "./cell.component";
+
 let Board = (props) => {
     return (
         <div className='board'>
-            <h1>The board would appear here</h1>
+            <Cell/>
+            <Cell/>
+            <Cell/>
+            <Cell/>
+            <Cell/>
+            <Cell/>
+            <Cell/>
+            <Cell/>
+            <Cell/>
+            <Cell/>
         </div>
     );
 
