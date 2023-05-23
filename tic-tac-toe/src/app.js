@@ -1,10 +1,13 @@
-
+import AppHeader from './components/app-header.component';
+import Game from './components/game.component';
+import './app.css';
 
 function App(){
 
     return (
-            <div>
-                <h1>Tic Tac Toe Game</h1>
+            <div className="app">
+                <AppHeader title="Tic Tac Toe" />
+                <Game/>
             </div>
         );
 }
