@@ -11,5 +11,9 @@ node_modules/
 .vs/
 *.pdb 
 /.idea/202305-brillio-react.iml
+/.idea/sonarlint/issuestore/index.pb
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/202305-brillio-react.iml
 /.idea/modules.xml
 /.idea/vcs.xml
