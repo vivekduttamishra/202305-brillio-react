@@ -4,17 +4,18 @@ let Board=(props)=>{
 
     return (
         <div className='board'>
-           <Cell/>
-           <Cell/>
-           <Cell/>
+           <Cell value="O"/>
+           <Cell value="X"/>
+           <Cell />
            
-           <Cell/>
-           <Cell/>
-           <Cell/>
+           <Cell />
+           <Cell />
+           <Cell value="X"/>
            
-           <Cell/>
-           <Cell/>
-           <Cell/>
+           <Cell value="O"/>
+           <Cell />
+           <Cell value="O"/>
+           
 
         </div>
     );
