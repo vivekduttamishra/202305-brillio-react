@@ -1,10 +1,10 @@
 
 
-let Status=(props)=>{
+let Status=({message})=>{
 
     return (
         <div className='status'>
-           <h2>Next Move : "O" </h2>
+           <h2>{message} </h2>
         </div>
     );
 }

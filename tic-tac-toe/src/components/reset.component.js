@@ -1,9 +1,13 @@
 
 
-let Reset=(props)=>{
+let Reset=({onClick})=>{
 
     return (
-        <button className='resetButton'>Reset</button>
+        <button className='resetButton'
+            onClick={onClick}
+        >
+            Reset
+        </button>
     );
 }
 
