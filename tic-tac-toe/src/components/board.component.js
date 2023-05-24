@@ -1,21 +1,24 @@
+import React from 'react';
 import Cell from "./cell.component";
 
-let Board = (props) => {
-    return (
-        <div className='board'>
-            <Cell value="O"/>
-            <Cell/>
-            <Cell/>
+class Board extends React.Component {
 
-            <Cell/>
-            <Cell/>
-            <Cell/>
 
-            <Cell/>
-            <Cell/>
-            <Cell/>
-        </div>
-    );
+    render() {
+        console.log('cells ', this.props.cells)
+        return (
+            <div className='board'>
+                {
+                    this.props.cells.map((value, index) => {
+                        return <Cell id={index}
+                                     value={this.props.cells[index]}
+                                     handleClick={this.props.handleClick}/>
+                    })
+                }
+            </div>
+        );
+    }
+
 
 }
 

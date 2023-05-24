@@ -2,51 +2,25 @@ import React from 'react';
 
 class Cell extends React.Component {
 
-    state = {
-        value: null
-    }
-
     render() {
-
+        console.log('Rendering cell ', this.props.id);
+        console.log('hadnleClick : ', this.props.handleClick);
         var cellStyle = {};
 
-        if (!this.state.value) {
+        if (!this.props.value) {
             // value = '-';
             cellStyle.color = "transparent";
+        } else {
+            if(this.props.value === 'X')
+                cellStyle.background = "green"
+            else
+                cellStyle.background = "yellow"
         }
-
-        let handleClick = () => {
-            let newValue = this.state.value === 'O' ? 'X' : 'O';
-            this.setState({value: newValue});
-            console.log('new vale is ', newValue);
-            // window.alert("");
-            // if (t)
-        };
-
         return (
-            <button className='cell' style={cellStyle} onClick={handleClick}>{this.state.value??'-'}</button>
+            <button className='cell' style={cellStyle}
+                    onClick={() => this.props.handleClick(this.props.id)}>{this.props.value ?? '-'}</button>
         );
     }
 
 }
-
-/*let Cell = ({value}) => {
-
-    var cellStyle = {};
-
-    if (!value) {
-        value = '-';
-        cellStyle.color = "transparent";
-    }
-
-    let onclick = () => {
-        // window.alert("");
-        // if (t)
-    }
-
-    return (
-        <button className='cell' style={cellStyle} onClick={onclick}>{value}</button>
-    );
-}*/
-
 export default Cell;

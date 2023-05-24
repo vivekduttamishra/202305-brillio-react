@@ -1,6 +1,6 @@
 let Reset = (props) => {
     return (
-        <button className='resetButton'>RESET</button>
+        <button className='resetButton' onClick={props.handleReset}>RESET</button>
     );
 
 }
