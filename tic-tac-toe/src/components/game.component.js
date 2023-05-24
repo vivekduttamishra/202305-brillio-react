@@ -2,6 +2,7 @@ import Status from "./status.component";
 import Board from "./board.component";
 import Reset from "./reset.component";
 import React from 'react'
+import {checkWinner} from "../services/game";
 
 class Game extends React.Component {
 
@@ -46,43 +47,18 @@ class Game extends React.Component {
         let nextPlayer = this.state.player === 'O' ? 'X' : 'O'
         this.setState({cells: newCells, player: nextPlayer});
         setTimeout(() => {
-            let winner = this.checkWinner(newCells)
+            let winner = checkWinner(newCells)
+           if(winner === -1){
+               window.alert("No moves left");
+               this.handleReset();
+           }
             if (winner.length > 0) {
-                debugger
                 window.alert("Player WON :" + newCells[winner[0][0]]);
                 this.handleReset();
             }
         }, 100);
-
-        // console.log('new vale is ', newValue);
-        // window.alert("");
-        // if (t)
     };
 
-    checkWinner(cells) {
-        let winner = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [6, 4, 2],
-        ]
-        let winnerCells = [];
-        for (const element of winner) {
-            let matrix = element;
-            let temp = cells[matrix[0]];
-            if (temp != null) {
-                if (temp === cells[matrix[1]] && temp === cells[matrix[2]]) {
-                    winnerCells.push(matrix)
-                }
-            }
-        }
-        return winnerCells;
-
-    }
 
 }
 
