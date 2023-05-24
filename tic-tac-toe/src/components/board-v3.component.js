@@ -36,19 +36,21 @@ class Board extends Component {
 
 
     render=()=>{
+
+        var cells=[];
+
+        for(var i=0;i<9;i++){
+            cells.push(
+                <Cell id={i} 
+                    value={this.state.cells[i]}
+                    onCellClicked={this.handleCellClick}
+                />
+            );
+        }
     
         return (
             <div className='board'>
-               {
-                this.state.cells.map((value,index)=>(
-                    <Cell id={index} 
-                        key={index}
-                    value={this.state.cells[index]}
-                    onCellClicked={this.handleCellClick}
-                    />
-                ))
-               }
-    
+               {cells}    
             </div>
         );
     }
