@@ -15,7 +15,7 @@ class Cell extends React.Component {
         }
         return (
             <button className='cell' style={cellStyle}
-                    disabled={!this.props.cellValue.isEnabled}
+                    disabled={this.props.cellValue.isDisabled}
                     onClick={() => this.props.handleClick(this.props.id)}>{this.props.cellValue.value ?? '-'}</button>
         );
     }

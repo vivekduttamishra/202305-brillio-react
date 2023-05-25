@@ -18,9 +18,9 @@ class Game extends React.Component {
         let newState = {
             // player: 'O',
             cells: [
-                {value : null, isEnabled : true}, {value : null, isEnabled : true}, {value : null, isEnabled : true},
-                {value : null, isEnabled : true}, {value : null, isEnabled : true}, {value : null, isEnabled : true},
-                {value : null, isEnabled : true}, {value : null, isEnabled : true}, {value : null, isEnabled : true}
+                {value : null, isDisabled : false}, {value : null, isDisabled : false}, {value : null, isDisabled : false},
+                {value : null, isDisabled : false}, {value : null, isDisabled : false}, {value : null, isDisabled : false},
+                {value : null, isDisabled : false}, {value : null, isDisabled : false}, {value : null, isDisabled : false}
             ],
             gameStatus: "Player Turn : ",
             currentPlayer : "O"
@@ -62,13 +62,13 @@ class Game extends React.Component {
                 let gameStatus = 'No more moves left. Game Draw'
                 this.setState({gameStatus : gameStatus})
                 for (let newCell of newCells) {
-                    newCell.isEnabled = false;
+                    newCell.isDisabled = true;
                 }
             } else if (winner.length > 0) {
                 let gameStatus = "Player WON :" + newCells[winner[0][0]].value;
                 this.setState({gameStatus : gameStatus});
                 for (let newCell of newCells) {
-                    newCell.isEnabled = false;
+                    newCell.isDisabled = true;
                 }
             } else {
                 let nextPlayer = this.state.currentPlayer === 'O' ? 'X' : 'O';
