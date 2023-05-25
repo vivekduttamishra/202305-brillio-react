@@ -5,13 +5,14 @@ class Board extends React.Component {
 
 
     render() {
-        console.log('cells ', this.props.cells)
+        console.log('cells values', this.props.cellValues);
         return (
             <div className='board'>
                 {
-                    this.props.cells.map((value, index) => {
+                    this.props.cellValues.map((cellValue, index) => {
                         return <Cell id={index}
-                                     value={this.props.cells[index]}
+                                     key={index}
+                                     cellValue={cellValue}
                                      handleClick={this.props.handleClick}/>
                     })
                 }

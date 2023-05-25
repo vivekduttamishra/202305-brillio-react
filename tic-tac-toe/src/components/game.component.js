@@ -6,55 +6,73 @@ import {checkWinner} from "../services/game";
 
 class Game extends React.Component {
 
-    state = {
-        player: 'O',
-        cells: [
-            null, null, null,
-            null, null, null,
-            null, null, null
-        ]
+    state = {}
+
+    constructor(props) {
+        super(props);
+        this.state = this.initiateNewGameState()
     }
 
+    initiateNewGameState() {
+        console.log('Reset Game');
+        let newState = {
+            // player: 'O',
+            cells: [
+                {value : null, isEnabled : true}, {value : null, isEnabled : true}, {value : null, isEnabled : true},
+                {value : null, isEnabled : true}, {value : null, isEnabled : true}, {value : null, isEnabled : true},
+                {value : null, isEnabled : true}, {value : null, isEnabled : true}, {value : null, isEnabled : true}
+            ],
+            gameStatus: "Player Turn : ",
+            currentPlayer : "O"
+        }
+        return newState;
+    }
+
+
     render() {
+        console.log('this.state.gameStatus : ', this.state.gameStatus)
         return (
             <div className='game'>
-                <Status nextPlayer={this.state.player}/>
-                <Board cells={this.state.cells} handleClick={this.handleClick}/>
+                <Status gameStatus={this.state.gameStatus} currentPlayer={this.state.currentPlayer} />
+                <Board cellValues={this.state.cells} handleClick={this.handleClick}/>
                 <Reset handleReset={this.handleReset}/>
             </div>
         );
     }
 
     handleReset = () => {
-        let resetCells = [
-            null, null, null,
-            null, null, null,
-            null, null, null
-        ];
-        let newPlayer = 'O';
-        this.setState({player: newPlayer, cells: resetCells})
+        this.setState(this.initiateNewGameState());
     }
 
     handleClick = (cellId) => {
         console.log("Cell id ", cellId);
-        console.log('cells ', this.state.cells)
-        if (this.state.cells[cellId] != null) {
+        console.log('cells ', this.state.cells);
+        debugger;
+        if (this.state.cells[cellId].value != null) {
             return;
         }
-
         let newCells = [...this.state.cells];
-        newCells[cellId] = this.state.player;
-        let nextPlayer = this.state.player === 'O' ? 'X' : 'O'
-        this.setState({cells: newCells, player: nextPlayer});
+        debugger
+        newCells[cellId].value = this.state.currentPlayer;
+
+        this.setState({cells: newCells});
         setTimeout(() => {
             let winner = checkWinner(newCells)
-           if(winner === -1){
-               window.alert("No moves left");
-               this.handleReset();
-           }
-            if (winner.length > 0) {
-                window.alert("Player WON :" + newCells[winner[0][0]]);
-                this.handleReset();
+            if (winner === -1) {
+                let gameStatus = 'No more moves left. Game Draw'
+                this.setState({gameStatus : gameStatus})
+                for (let newCell of newCells) {
+                    newCell.isEnabled = false;
+                }
+            } else if (winner.length > 0) {
+                let gameStatus = "Player WON :" + newCells[winner[0][0]].value;
+                this.setState({gameStatus : gameStatus});
+                for (let newCell of newCells) {
+                    newCell.isEnabled = false;
+                }
+            } else {
+                let nextPlayer = this.state.currentPlayer === 'O' ? 'X' : 'O';
+                this.setState({currentPlayer: nextPlayer});
             }
         }, 100);
     };

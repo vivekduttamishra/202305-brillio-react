@@ -11,7 +11,7 @@ const winner = [
 ]
 
 export function checkWinner(cells) {
-    if(cells.filter((cell) => cell== null).length <= 0 ){
+    if(cells.filter((cell) => cell.value== null).length <= 0 ){
         return -1;
     };
 
@@ -19,9 +19,9 @@ export function checkWinner(cells) {
     let winnerCells = [];
     for (const element of winner) {
         let matrix = element;
-        let temp = cells[matrix[0]];
+        let temp = cells[matrix[0]].value;
         if (temp != null) {
-            if (temp === cells[matrix[1]] && temp === cells[matrix[2]]) {
+            if (temp === cells[matrix[1]].value && temp === cells[matrix[2]].value) {
                 winnerCells.push(matrix)
             }
         }
