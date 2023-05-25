@@ -1,15 +1,19 @@
 import { Component } from 'react';
 import Cell from './cell.component';
 
-const Board = ({cells, onCellClick}) => {
+const Board = ({cells,winningCombo, completed, onCellClick}) => {
+
+    
 
     return (
         <div className='board'>
             {
-                cells.map((value, index) => (
-                    <Cell id={index}
-                        key={index}
+                cells.map((value, id) => (
+                    <Cell id={id}
+                        key={id}
                         value={value}
+                        completed={completed}
+                        winner={winningCombo.includes(id)}
                         onCellClicked={onCellClick}
                     />
                 ))

@@ -2,6 +2,7 @@ import React from 'react';
 import Board from './board.component';
 import Status from './status.component';
 import Reset from './reset.component';
+import MoveList from './move-list.component';
 
 import {checkGame} from '../services/tic-tac-toe';
 
@@ -32,19 +33,32 @@ class Game extends React.Component {
                 ],
 
             player:"O",
-            status:'Next Move : "O"'
-
+            status:'Next Move : "O"',
+            winner:null,
+            completed:false,
+            winningCombo:[],
+            moves:[]
         };
     }
 
     handleCellClick=(cellId)=>{
-
+        console.log('handleCellClick called');
         if(this.state.cells[cellId]!==null)
             return;
         
         var cells = [...this.state.cells];
         cells[cellId]= this.state.player;
         this.setState({cells});
+
+        var moves = [...this.state.moves, //take all current moves
+                    //and add a new move
+                    {
+                        player:this.state.player, 
+                        position:cellId
+                    }];
+
+        this.setState({moves});
+        
 
 
         var result=checkGame(cells);
@@ -58,9 +72,14 @@ class Game extends React.Component {
                      
             
         } else if(result.winner){                        
-            status=`"${result.winner}" Wins!`;            
+            status=`"${result.winner}" Wins!`; 
+            this.setState({
+                winner:result.winner,
+                completed:true,
+                winningCombo: result.winningCombo
+            });           
         } else{ 
-
+            this.setState({completed:true});
             status=`Games Ends in Draw!`;
         }
         
@@ -76,12 +95,20 @@ class Game extends React.Component {
     render(){
         return (
             <div className='game'>
-                <Status message={this.state.status}/>
-                <Board 
-                        cells={this.state.cells} 
-                        onCellClick={this.handleCellClick}
-                        />
-                <Reset onClick={this.handleReset} />
+                <div className="left">
+                    <Status message={this.state.status}/>                
+                    <Board 
+                            completed={this.state.completed}
+                            cells={this.state.cells} 
+                            onCellClick={this.handleCellClick}
+                            winningCombo={this.state.winningCombo}
+
+                            />
+                    <Reset onClick={this.handleReset} />
+                </div>
+                <div className="right">
+                    <MoveList moves={this.state.moves}/>
+                </div>
             </div>
         )
     }
