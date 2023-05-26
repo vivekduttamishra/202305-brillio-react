@@ -1,74 +1,93 @@
-.header {
-    color: white;
-    background: black;
-    height: 70px;
-    padding: 10px;
+.header{
+    color:white;
+    background:black;
+    height:70px;
+    padding:10px;
     box-shadow: 0px 5px 2px gray;
     margin-bottom: 20px;
-}
-
-.game {
-    border: 2px solid orange;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.resetButton {
-    background: red;
-    padding: 5px;
-    width: 50%;
-}
-
-.board {
-    /*border: 1px solid blue;*/
-    width: 240px;
-    margin: 10px;
-}
-
-.cell {
-    width: 80px;
-    background: white;
-    height: 80px;
 
 }
 
-/*.App {
-  text-align: center;
+.game{
+    border:2px solid orange;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.left{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    float:left;
+    width:240px;
+    border: 2px solid red;
+    padding-right:10px;
+    margin: 5px;
+    /*border-right:2px solid gray;*/
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.right{
+    margin-left:20px;
+    float:left;
+    min-width:200px;
+    max-width:50%;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.right table{
+    width:100%;
+    border:1px solid gray;
 }
 
-.App-link {
-  color: #61dafb;
+.right td{
+    border:1px solid gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}*/
+.right th{
+    background:black;
+    color:white;
+    font-weight: bold;
+}
+
+.status{
+
+}
+
+.resetButton{
+    background:red;
+    padding:5px;
+    width:50%
+}
+
+.board{
+
+    width:240px;
+    margin:10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.cell{
+
+    width:80px;
+    height:80px;
+    background-color: white;
+    font-family: 'Indie Flower', cursive;
+    font-size:3em;
+    font-weight: bold;
+    border:0px;
+
+}
+
+.b_left{
+    border-left:1px solid black;
+}
+.b_top{
+    border-top:1px solid black;
+}
+
+.b_right{
+    border-right:1px solid black;
+}
+
+b._bottom{
+    border-bottom: 1px solid black;
+}

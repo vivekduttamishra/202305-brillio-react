@@ -3,6 +3,7 @@ import Board from "./board.component";
 import Reset from "./reset.component";
 import React from 'react'
 import {checkWinner} from "../services/game";
+import PlayerMoves from "./player-moves.component";
 
 class Game extends React.Component {
 
@@ -10,7 +11,8 @@ class Game extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = this.initiateNewGameState()
+        // this.state = ;
+        this.state = {...this.initiateNewGameState()};
     }
 
     initiateNewGameState() {
@@ -18,12 +20,25 @@ class Game extends React.Component {
         let newState = {
             // player: 'O',
             cells: [
-                {value : null, isDisabled : false}, {value : null, isDisabled : false}, {value : null, isDisabled : false},
-                {value : null, isDisabled : false}, {value : null, isDisabled : false}, {value : null, isDisabled : false},
-                {value : null, isDisabled : false}, {value : null, isDisabled : false}, {value : null, isDisabled : false}
+                {value: null, isDisabled: false, isWinner: false}, {
+                    value: null,
+                    isDisabled: false,
+                    isWinner: false
+                }, {value: null, isDisabled: false, isWinner: false},
+                {value: null, isDisabled: false, isWinner: false}, {
+                    value: null,
+                    isDisabled: false,
+                    isWinner: false
+                }, {value: null, isDisabled: false, isWinner: false},
+                {value: null, isDisabled: false, isWinner: false}, {
+                    value: null,
+                    isDisabled: false,
+                    isWinner: false
+                }, {value: null, isDisabled: false, isWinner: false}
             ],
             gameStatus: "Player Turn : ",
-            currentPlayer : "O"
+            currentPlayer: "O",
+            playerMoves: []
         }
         return newState;
     }
@@ -33,9 +48,14 @@ class Game extends React.Component {
         console.log('this.state.gameStatus : ', this.state.gameStatus)
         return (
             <div className='game'>
-                <Status gameStatus={this.state.gameStatus} currentPlayer={this.state.currentPlayer} />
-                <Board cellValues={this.state.cells} handleClick={this.handleClick}/>
-                <Reset handleReset={this.handleReset}/>
+                <Status gameStatus={this.state.gameStatus} currentPlayer={this.state.currentPlayer}/>
+                <div className='left'>
+                    <Board cellValues={this.state.cells} handleClick={this.handleClick}/>
+                    <Reset handleReset={this.handleReset}/>
+                </div>
+                <div className='right'>
+                    <PlayerMoves playerMoves={this.state.playerMoves}/>
+                </div>
             </div>
         );
     }
@@ -47,12 +67,17 @@ class Game extends React.Component {
     handleClick = (cellId) => {
         console.log("Cell id ", cellId);
         console.log('cells ', this.state.cells);
-        debugger;
+
         if (this.state.cells[cellId].value != null) {
             return;
         }
+
+        let newPlayerMoves = [...this.state.playerMoves];
+        newPlayerMoves.push({player: this.state.currentPlayer, position: cellId});
+        this.setState({playerMoves: newPlayerMoves});
+
+
         let newCells = [...this.state.cells];
-        debugger
         newCells[cellId].value = this.state.currentPlayer;
 
         this.setState({cells: newCells});
@@ -60,16 +85,23 @@ class Game extends React.Component {
             let winner = checkWinner(newCells)
             if (winner === -1) {
                 let gameStatus = 'No more moves left. Game Draw'
-                this.setState({gameStatus : gameStatus})
+                this.setState({gameStatus: gameStatus})
                 for (let newCell of newCells) {
                     newCell.isDisabled = true;
                 }
+                this.props.updateScoreBoard();
+
             } else if (winner.length > 0) {
                 let gameStatus = "Player WON :" + newCells[winner[0][0]].value;
-                this.setState({gameStatus : gameStatus});
-                for (let newCell of newCells) {
+                this.setState({gameStatus: gameStatus});
+                for (let i = 0; i < newCells.length; i++) {
+                    let newCell = newCells[i];
+                    if (winner[0].includes(i)) {
+                        newCell.isWinner = true;
+                    }
                     newCell.isDisabled = true;
                 }
+                this.props.updateScoreBoard(newCells[winner[0][0]].value);
             } else {
                 let nextPlayer = this.state.currentPlayer === 'O' ? 'X' : 'O';
                 this.setState({currentPlayer: nextPlayer});

@@ -8,17 +8,26 @@ class Cell extends React.Component {
             // value = '-';
             cellStyle.color = "transparent";
         } else {
-            if(this.props.cellValue.value === 'X')
+            if (this.props.cellValue.isWinner) {
+                cellStyle.background = 'red';
+                // cellStyle.animation = "blinkingBackground 2s infinite";
+            } else if (this.props.cellValue.value === 'X')
                 cellStyle.background = "green"
-            else
+            else {
                 cellStyle.background = "yellow"
+            }
         }
         return (
-            <button className='cell' style={cellStyle}
+            <button style={cellStyle}
                     disabled={this.props.cellValue.isDisabled}
-                    onClick={() => this.props.handleClick(this.props.id)}>{this.props.cellValue.value ?? '-'}</button>
+                    onClick={() => this.props.handleClick(this.props.id)}
+                    className={'cell ' + this.props.borders[this.props.id]}
+            >
+                {this.props.cellValue.value ?? '-'}
+            </button>
         );
     }
 
 }
+
 export default Cell;
