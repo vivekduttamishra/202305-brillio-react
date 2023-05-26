@@ -13,7 +13,7 @@ const BookListScreen=(props)=>{
                 {
                     books.map(book=>(
                             <li key={book.isbn}>{book.title}</li>
-                            ));
+                            ))
                 }
             </ul>
             
