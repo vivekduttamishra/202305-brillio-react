@@ -25,6 +25,7 @@ export const checkGame=(cells)=>{
         get draw(){
             return this.completed && !this.winner
         },
+        winningCombo:[],
         moves: cells.filter(cell=> cell!==null).length
     };
 

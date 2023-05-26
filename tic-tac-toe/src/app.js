@@ -3,26 +3,43 @@ import AppHeader from './components/app-header.component';
 import Game from './components/game.component';
 import Clock from './components/clock.component';
 import './app.css';
+import ScoreBoard from './components/scrore-board.component';
 
 class App extends React.Component {
 
-    state = {
-        showClock: true
+    state={
+        matches:0,
+        O:0,
+        X:0,
+        draw:0
     }
 
-    handleToggle=()=>{
-        this.setState({showClock: !this.state.showClock});
+    handleGameOver=(winner)=>{
+        var {matches, O, X, draw }=this.state;
+
+        matches++;
+        if(winner==='O')
+            O++;
+        else if (winner==='X')
+            X++;
+        else
+            draw++;
+
+        this.setState({matches,O,X,draw});
     }
 
     render() {
+        
+
         return (
             <div className="app">
                 <AppHeader title="Tic Tac Toe" />
-                <div>
-                    { this.state.showClock && <Clock /> }
-                    <button onClick={this.handleToggle} >Toggle Clock</button>
-                </div>
-                <Game />
+                <ScoreBoard
+                   {...this.state}
+                />              
+                <Game 
+                    onGameOver={this.handleGameOver}
+                />
             </div>
         );
     }

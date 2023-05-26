@@ -52,7 +52,7 @@
 }
 
 .resetButton{
-    background:red;
+    background:lightgreen;
     padding:5px;
     width:50%
 }
@@ -90,4 +90,68 @@
 
 b._bottom{
     border-bottom: 1px solid black;
+}
+
+.scoreboard{
+    background:black;
+    width:300px;
+    color:white;
+    border-radius: 25px;
+    padding:10px;
+    box-shadow: -4px -4px 4px gray;
+    margin:5px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scoreboard table{
+    width:100%;
+    text-align:center;    
+}
+
+.scoreboard th{
+    background:white;
+    color:black;
+}
+.scoreboard td{
+    background:lightyellow;
+    color:black;
+}
+
+.stopwatch{
+    background:black;
+    color:White;
+    width:150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:5px;
+    margin:5px;
+    box-shadow: -2px -2px 2px gray;
+    border-radius: 5px;
+}
+
+.seconds{
+    font-size:1.5em;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.controls{
+    width:80%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.controls button{
+    width: 50px;
+    background-color:white;
+}
+
+.row{
+    display: flex;
+    
 }

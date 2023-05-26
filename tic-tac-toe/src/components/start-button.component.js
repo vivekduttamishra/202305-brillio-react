@@ -1,14 +1,15 @@
 
 
-let Reset=({onClick})=>{
+let StartButton=({onClick,disabled})=>{
 
     return (
         <button className='resetButton'
+            disabled={disabled}
             onClick={onClick}
         >
-            Reset
+            Start
         </button>
     );
 }
 
-export default Reset;
+export default StartButton;
