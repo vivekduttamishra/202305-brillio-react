@@ -4,6 +4,7 @@ import Reset from "./reset.component";
 import React from 'react'
 import {checkWinner} from "../services/game";
 import PlayerMoves from "./player-moves.component";
+import Timer from "./timer.component";
 
 class Game extends React.Component {
 
@@ -54,6 +55,20 @@ class Game extends React.Component {
                     <Reset handleReset={this.handleReset}/>
                 </div>
                 <div className='right'>
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>Player O</td>
+                            <td>Player X</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><Timer/></td>
+                            <td><Timer/></td>
+                        </tr>
+                        </tbody>
+                    </table>
                     <PlayerMoves playerMoves={this.state.playerMoves}/>
                 </div>
             </div>
