@@ -1,6 +1,6 @@
 
 
-const BookInfo = ({ book }) => {
+const BookInfo = ({ book,onDelete }) => {
 
     var style = {
         width: "100%"
@@ -36,7 +36,11 @@ const BookInfo = ({ book }) => {
                     </div>
                     <div className='col-6 details-image-column'>
                         <img src={book.cover} alt={book.title} title={book.title} className='details-image' />
-                        <a href="#" className="card-link text-danger">Delete</a>
+                        <button 
+                                onClick={()=> onDelete(book.isbn)} 
+                                className="btn btn-danger btn-sm">
+                            Delete
+                        </button>
                     </div>
                 </div>
                 <h6 className="card-subtitle mb-2 text-muted">Description</h6>

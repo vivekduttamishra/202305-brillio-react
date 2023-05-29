@@ -2,41 +2,42 @@ import React from 'react';
 import _books from '../data/books.json';
 import BookList from '../components/book-list.component';
 import BookInfo from '../components/book-info.component';
- 
-class BookManageScreen extends React.Component{
-    state={
-        selectedBook:null
+
+const BookManageScreen = ()=>{
+
+    const [selectedBook, setSelectedBook ]= React.useState(null);
+    const [books, updateBookList] = React.useState(_books);
+
+    const deleteBook= isbn =>{
+
+        var remainingBooks = books.filter(b=>b.isbn!==isbn);
+        updateBookList(remainingBooks);
+        setSelectedBook( remainingBooks[0] || null);
     }
-    selectBook= book=>{
-        this.setState({selectedBook:book});
-    }
-
-    render(){
-
-        var books=_books;
-
-        return (
-            <div >
-                <h2>Book Management Console</h2>
-                <div className="row">
-                    <div className="col col-3">
-                        <BookList 
-                            books={books}
-                            selectedBook={this.state.selectedBook}
-                            onSelect={this.selectBook}
-                            />
-                    </div>
     
-                    <div className="col col-9" >
-                        <BookInfo 
-                            book={this.state.selectedBook} 
-                        />
-                    </div>
+
+    return (
+        <div >
+            <h2>Book Management Console</h2>
+            <div className="row">
+                <div className="col col-3">
+                    <BookList
+                        books={books}
+                        selectedBook={selectedBook}
+                        onSelect={setSelectedBook}
+                    />
+                </div>
+
+                <div className="col col-9" >
+                    <BookInfo
+                        book={selectedBook}
+                        onDelete={deleteBook}
+                    />
                 </div>
             </div>
-        );       
+        </div>
+    );
 
-    }
 }
 
 
