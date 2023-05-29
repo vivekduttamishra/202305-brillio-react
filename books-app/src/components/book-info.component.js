@@ -1,9 +1,21 @@
 
 
-const BookInfo = ({book}) => {
-    
-    var style={
+const BookInfo = ({ book }) => {
+
+    var style = {
         width: "100%"
+    }
+
+    if (!book) {
+        return (
+            <div className="card" style={style}>
+                <div className="card-body">
+                    <h5 className="card-title">
+                        please select a book
+                    </h5>
+                </div>
+            </div>
+        )
     }
 
 
@@ -28,10 +40,10 @@ const BookInfo = ({book}) => {
                     </div>
                 </div>
                 <h6 className="card-subtitle mb-2 text-muted">Description</h6>
-                
+
                 <p className="card-text">{book.description}</p>
-                
-                
+
+
             </div>
         </div>
     );

@@ -1,6 +1,16 @@
 
 
-const BookList=({books})=>{
+const BookList=({books, onSelect, selectedBook}) => {
+
+    const getClasses=(currentBook)=>{
+        var coreClasses="list-group-item list-group-item-action";
+
+        if(currentBook===selectedBook)
+            coreClasses+=" active";
+
+        return coreClasses
+        
+    }
 
     return (
         <div >
@@ -9,7 +19,8 @@ const BookList=({books})=>{
                 {
                     books.map(book=>(
                         <button key={book.isbn}  
-                            className="list-group-item list-group-item-action"
+                            className={getClasses(book)}
+                            onClick={()=>onSelect(book)}
                         >
                             {book.title}
                         </button>

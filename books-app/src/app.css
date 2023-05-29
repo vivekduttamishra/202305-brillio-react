@@ -47,3 +47,7 @@ footer{
     padding:2px;
     border-radius:20px;
 }
+
+.active{
+    background-color: darkred !important;
+}
