@@ -12,7 +12,9 @@ const BookListScreen=(props)=>{
             <ul>
                 {
                     books.map(book=>(
-                            <li key={book.isbn}>{book.title}</li>
+                            <li key={book.isbn}>
+                                <img src={book.cover} />
+                            </li>
                             ))
                 }
             </ul>

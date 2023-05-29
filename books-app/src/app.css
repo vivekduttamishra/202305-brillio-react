@@ -27,3 +27,23 @@ footer{
     font-size: 1.5em;
     
 }
+
+.details-info-column{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details-image-column{
+    display:flex;
+    flex-direction:column;
+    align-items:center
+}
+
+.details-image{
+    width:150px;
+    box-shadow: -5px -5px 5px gray;
+    border:5px solid black;
+    padding:2px;
+    border-radius:20px;
+}

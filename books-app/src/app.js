@@ -1,6 +1,6 @@
 import Footer from './components/footer.component';
 import Header from './components/header.component';
-import BookListScreen from './screens/book-list.screen';
+import BookManageScreen from './screens/book-manage.screen';
 
 import 'bootstrap/dist/js/bootstrap';
 
@@ -13,7 +13,7 @@ const App = ()=>{
         <div>
             <Header title="Book's Web" />
             <div className="content">
-                <BookListScreen/>
+                <BookManageScreen/>
             </div>
             <Footer/>
         </div>
