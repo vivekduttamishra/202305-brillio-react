@@ -11,31 +11,36 @@ class BookListScreen extends React.Component {
                 name: 'book 1',
                 price: 400,
                 rating: 4.5,
-                description: "This will be the overview"
+                description: "This will be the overview",
+                pages : 100
             },
             {
                 name: 'book 2',
                 price: 400,
                 rating: 4.5,
-                description: "This will be the overview"
+                description: "This will be the overview",
+                pages : 100
             },
             {
                 name: 'book 2',
                 price: 400,
                 rating: 4.5,
-                description: "This will be the overview"
+                description: "This will be the overview",
+                pages : 100
             },
             {
                 name: 'book 2',
                 price: 400,
                 rating: 4.5,
-                description: "This will be the overview"
+                description: "This will be the overview",
+                pages : 100
             },
             {
                 name: 'book 5',
                 price: 400,
                 rating: 4.5,
-                description: "This will be the overview"
+                description: "This will be the overview",
+                pages : 100
             }
         ]
     }
