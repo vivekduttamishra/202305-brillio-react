@@ -1,13 +1,16 @@
 
 
-const Blank=(props)=>{
+const NotFound=({title="Not Found",errorMessage="Resource Not Found"})=>{
 
     return (
-        <div >
-            <h1>Blank</h1>
+        <div className='not-found'>
+            <h2 className="text-danger">{title}</h2>
+            <img src="/images/404.png" title="Not Found" alt="Not Found" 
+                    className="not-found-image" />
+            <p className="text-danger">{errorMessage}</p>
         </div>
     );
 
 }
 
-export default Blank;
+export default NotFound;

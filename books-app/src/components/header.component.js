@@ -1,4 +1,4 @@
-
+import {Link} from 'react-router-dom';
 
 const Header = (props) => {
     const style={
@@ -9,14 +9,19 @@ const Header = (props) => {
     return (
         <nav className="navbar navbar-dark   navbar-expand-lg bg-body-tertiary" style={style} data-bs-theme="dark" >
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a className="navbar-brand" href="/">Navbar</a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Books</a>
+                            <Link className="nav-link active" aria-current="page" to="/books">Books</Link>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/books/add">Add Book</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link active" aria-current="page" href="#">Authors</a>
@@ -36,8 +41,8 @@ const Header = (props) => {
                                     Membership
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Register</a></li>
-                                    <li><a className="dropdown-item" href="#">Login</a></li>
+                                    <li><a className="dropdown-item" href="/user/register">Register</a></li>
+                                    <li><a className="dropdown-item" href="/user/login">Login</a></li>
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><a className="dropdown-item disabled" href="#">Logout</a></li>
                                 </ul>

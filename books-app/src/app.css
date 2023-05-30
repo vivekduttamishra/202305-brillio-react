@@ -69,3 +69,14 @@ footer a{
     display:flex;
     align-items: space-between;
 }
+
+.border{
+    border: 5px solid darkred !important;
+    margin:5px;
+}
+
+
+.not-found img{
+    height:300px;
+}
+

@@ -3,13 +3,12 @@ import {SCREEN_BOOK_LIST} from '../consts';
 
 
 
-const BookDetailsScreen=({book,navigate})=>{
+const BookDetailsScreen=({book})=>{
 
 
     return (
         <div >
-            <button class='btn text-primary' 
-            onClick={()=>navigate(SCREEN_BOOK_LIST)}>Back To List</button>
+            <button class='btn text-primary' >Back To List</button>
             <BookInfo book={book} />
         </div>
     );

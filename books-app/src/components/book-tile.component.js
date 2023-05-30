@@ -1,7 +1,9 @@
+import withBorder from "../hoc/border.hoc";
 
 
 const BookTile = ({book}) => {
 
+    if(!book) return <h2>No Book</h2>;
 
     return (
         <div className="card book-tile" >
@@ -21,4 +23,4 @@ const BookTile = ({book}) => {
 
 }
 
-export default BookTile;
+export default withBorder( BookTile) ;
