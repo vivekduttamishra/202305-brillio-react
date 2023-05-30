@@ -5,7 +5,7 @@
 footer{
     border-top: 2px solid gray;
     text-align: center;
-    color:white;
+    color:white !important;
     background-color: darkred;
     position: fixed;
     width:100%;
@@ -13,8 +13,14 @@ footer{
     left:0px;
     bottom:0px;
     
-    
+    display:flex;
+    align-items: center;
+    justify-content: center;
 
+}
+
+footer a{
+    color:white;
 }
 
 .content{
@@ -50,4 +56,16 @@ footer{
 
 .active{
     background-color: darkred !important;
+    
+}
+
+.book-tile{
+    max-width: 200px;
+    margin:5px;
+    
+}
+
+.meta{
+    display:flex;
+    align-items: space-between;
 }

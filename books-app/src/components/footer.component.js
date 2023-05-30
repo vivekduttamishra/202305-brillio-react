@@ -2,9 +2,11 @@
 
 const Footer=(props)=>{
 
+    
+
     return (
-        <footer>
-            site footer here!
+        <footer  >
+            {props.children}
         </footer>
     );
 

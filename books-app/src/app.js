@@ -6,6 +6,8 @@ import 'bootstrap/dist/js/bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import BookListScreen from './screens/book-list.screen';
+import BookDetailsScreen from './screens/book-details.screen';
 
 const App = ()=>{
 
@@ -13,9 +15,13 @@ const App = ()=>{
         <div>
             <Header title="Book's Web" />
             <div className="content">
-                <BookManageScreen/>
+                <BookDetailsScreen/>
+                
             </div>
-            <Footer/>
+            <Footer>
+
+                &copy;  <a href="http://conceptarchitect.in">Concept Architect</a>
+            </Footer>
         </div>
     )
 }
