@@ -1,14 +1,17 @@
 
 import BookTile from '../components/book-tile.component';
-import books from '../data/books.json';
+
 import withBorder from '../hoc/border.hoc';
 import withVisibility from '../hoc/visibility.hoc';
 
 import {Link} from 'react-router-dom';
 
-
+import BookService from '../services/simple-book-service';
 
 const BookListScreen=(props)=>{
+
+    var service=new BookService();
+    var books=service.getAllBooks();
 
     return (
         <div >
@@ -19,8 +22,12 @@ const BookListScreen=(props)=>{
                 {
                     books.map(book=>(
                         <div key={book.isbn}
-                            className="col col-lg-2 col-md-3 col-xs-1 col-sm-4 col-6">
-                            <BookTile book={book} />  
+                            className="book-info-tile-link col col-lg-2 col-md-3 col-xs-1 col-sm-4 col-6">
+
+                            <Link to={'/books/details/'+book.isbn}>
+                                <BookTile book={book} />  
+                            </Link>
+
                         </div>
                     ))
                 }

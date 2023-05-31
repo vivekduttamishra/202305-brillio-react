@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-const Header = (props) => {
+const Header = ({title}) => {
     const style={
         backgroundColor:"darkred",
         
@@ -9,7 +9,7 @@ const Header = (props) => {
     return (
         <nav className="navbar navbar-dark   navbar-expand-lg bg-body-tertiary" style={style} data-bs-theme="dark" >
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Navbar</a>
+                <a className="navbar-brand" href="/">{title}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
                 aria-expanded="false" aria-label="Toggle navigation">

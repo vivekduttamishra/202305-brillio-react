@@ -20,9 +20,7 @@ import 'bootstrap/dist/js/bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
-import NotFound from './components/blank.component';
-
-
+import NotFound from './components/not-found.component';
 
 
 const App = () => {
@@ -38,7 +36,9 @@ const App = () => {
                         <Route path="/" element={<HomeScreen />} />
                         <Route path="/books" element={<BookListScreen />} />
                         <Route path="/books/add" element={<BookAddScreen />} />
-                        <Route path="/books/details" element={<BookDetailsScreen />} />
+
+                        <Route path="/books/details/:isbn" element={<BookDetailsScreen />} />
+                        
                         <Route path="/user/login" element={<UserLoginScreen />} />
                         <Route path="/user/register" element={<UserRegisterScreen />} />
 

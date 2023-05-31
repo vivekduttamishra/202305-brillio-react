@@ -1,3 +1,4 @@
+import withVisibility from "../hoc/visibility.hoc";
 
 
 const BookInfo = ({ book,onDelete }) => {
@@ -54,4 +55,4 @@ const BookInfo = ({ book,onDelete }) => {
 
 }
 
-export default BookInfo;
+export default withVisibility( BookInfo );

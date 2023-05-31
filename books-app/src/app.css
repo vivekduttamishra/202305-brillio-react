@@ -70,7 +70,7 @@ footer a{
     align-items: space-between;
 }
 
-.border{
+.border_deleted{
     border: 5px solid darkred !important;
     margin:5px;
 }
@@ -80,3 +80,7 @@ footer a{
     height:300px;
 }
 
+.book-info-tile-link a{
+    text-decoration:none;
+    color:black;
+}
