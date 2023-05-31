@@ -13,8 +13,6 @@ const BookListScreen=(props)=>{
 
     const [books,setBooks]=useState(null);
 
-    console.log(new Date().toLocaleTimeString(),'list screen rendered with books=',books);
-
     var service=new BookService();
 
     service
@@ -22,7 +20,7 @@ const BookListScreen=(props)=>{
         .then(books=>setBooks(books));
     
 
-   
+    console.log('books',books);
 
     if(!books){
         return <h4>Please wait while we load the books...</h4>;
