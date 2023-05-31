@@ -2,10 +2,19 @@
 
 const If = ({ condition, children }) => {
 
-    if (condition)
+    console.log('condition is '+ condition);
+    
+
+    if (condition){
+        console.log("returning the children");
         return children;
-    else
+    }
+        
+    else{
+        console.log("returning empty");
         return null;
+    }
+        
 
 }
 

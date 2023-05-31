@@ -3,6 +3,9 @@ import withVisibility from "../hoc/visibility.hoc";
 
 const BookInfo = ({ book,onDelete }) => {
 
+    console.log('book in BookInfo',book);
+    
+
     var style = {
         width: "100%"
     }

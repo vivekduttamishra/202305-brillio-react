@@ -6,7 +6,7 @@ import NotFound from '../components/not-found.component';
 
 
 import {useParams,Link} from 'react-router-dom';
-import BookService from '../services/simple-book-service';
+import BookService from '../services/async-book-service';
 
 
 
@@ -19,6 +19,8 @@ const BookDetailsScreen=()=>{
     var service=new BookService();
     var book= service.getBookByIsbn(isbn);
 
+    console.log('book',book);
+    
     
 
     return (
