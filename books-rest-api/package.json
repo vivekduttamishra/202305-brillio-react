@@ -1,0 +1,20 @@
+{
+  "name": "books-rest-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-no-auth": "json-server --port 5000 db.json",
+    "start": "json-server-auth --port 5000 db.json -r routes.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  },
+  "devDependencies": {
+    "json-server-auth": "^2.1.0"
+  }
+}

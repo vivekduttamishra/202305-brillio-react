@@ -129,12 +129,21 @@ export default class SimpleBookService{
     getBookByIsbn=async (isbn)=>{
         await delay(2000);
         var book= this.books.find(book=>book.isbn===isbn);
+       
+        
         if(!book) 
             throw new Error(`No Book with isbn: ${isbn}`);
+
+        return book;
     }
 
     addBook = async (book)=>{
         await delay(3000);
+        var existing= this.books.find(b=>b.isbn===book.isbn);
+        if(existing) {
+          throw new Error(`Duplicate ISBN: ${book.isbn}`)
+        }
+
         this.books.push(book);
     }
 

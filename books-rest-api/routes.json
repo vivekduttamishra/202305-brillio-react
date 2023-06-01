@@ -1,0 +1,6 @@
+{
+    "books": 664,
+    "authors":664,
+    "/users*":"/200/users$1",    
+    "/users":"/200/users"    
+}
